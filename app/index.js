@@ -13,7 +13,6 @@ export default function App() {
     const [isLeggedIn, setIsLoggedIn] = useState(null); // Estado para almacenar si el usuario está autenticado
 
     useEffect(() => {
-        // Función que revisa si hay un usuario guardado en AsyncStorage
         const checkLoginStatus = async () => {
             try{
                 const storedUsername = await AsyncStorage.getItem('username')
@@ -32,7 +31,6 @@ export default function App() {
     }, [])
 
     if(isLeggedIn === null){
-        // Mostrar un spinner de carga mientras se verifica el estado de autenticación
         return (
             <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
             <ActivityIndicator size="large" color="#000ff" />
