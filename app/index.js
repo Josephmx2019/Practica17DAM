@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator} from '@react-navigation/stack'
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import LoginScreen from './screens/LoginScreen';
 import HomeScreen from './screens/HomeScreen';
@@ -39,12 +38,10 @@ export default function App() {
     }
 
     return (
-        <NavigationContainer>
-            <Stack.Navigator initialRouteName={isLeggedIn ? "Home": "Login"}>
-                <Stack.Screen name="Login" component={LoginScreen}/>
-                <Stack.Screen name="Home" component={HomeScreen}/>
-                <Stack.Screen name="Details" component={DetailsScreen}/>
-            </Stack.Navigator>
-        </NavigationContainer>
+        <Stack.Navigator initialRouteName={isLeggedIn ? "Home": "Login"}>
+            <Stack.Screen name="Login" component={LoginScreen}/>
+            <Stack.Screen name="Home" component={HomeScreen}/>
+            <Stack.Screen name="Details" component={DetailsScreen}/>
+        </Stack.Navigator>
     );
 }
